@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/cat"/>
+
+    <Button
+        android:id="@+id/Choose_Cats_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minWidth="210dp"
+        android:text="@string/Choose_Cats"
+        android:background="@drawable/buttons"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <Button
+        android:id="@+id/start_video_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minWidth="210dp"
+        android:text="@string/play_video"
+        android:background="@drawable/buttons"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minWidth="210dp"
+        android:text="@string/exit"
+        android:background="@drawable/buttons"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <CheckBox
+        android:id="@+id/autoplay_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minWidth="150dp"
+        android:text="@string/autoplay"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/lightbox_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minWidth="150dp"
+        android:text="@string/lightbox_mode"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/start_index_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:minWidth="150dp"
+        android:inputType="number"
+        android:hint="@string/start_index"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/start_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minWidth="150dp"
+        android:inputType="number"
+        android:hint="@string/start_time"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

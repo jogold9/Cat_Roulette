@@ -1,0 +1,219 @@
+Index: app/src/main/res/layout/standalone_player.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/standalone_player.xml	(date 1448936455000)
++++ app/src/main/res/layout/standalone_player.xml	(revision )
+@@ -11,6 +11,7 @@
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
++        android:layout_marginTop="15dp"
+         android:id="@+id/imageView"
+         android:src="@drawable/cat"/>
+ 
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(date 1448936455000)
++++ app/src/main/res/values/styles.xml	(revision )
+@@ -2,6 +2,6 @@
+ 
+     <style name="BlackNoBarsTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen"/>
+     <style name="BlackNoTitleBarTheme" parent="android:Theme.Black.NoTitleBar"/>
+-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
++    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar"/>
+ 
+ </resources>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(date 1448936455000)
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -9,11 +9,13 @@
+         android:allowBackup="true"
+         android:icon="@mipmap/ic_launcher"
+         android:label="@string/app_name"
+-        android:theme="@style/AppTheme" >
++        android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
++         >
+         <activity
+             android:name=".MainActivity"
+             android:label="@string/app_name"
+-            android:screenOrientation="portrait">
++            android:screenOrientation="portrait"
++             >
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+ 
+Index: app/src/main/java/com/joshbgold/catroulette/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/joshbgold/catroulette/MainActivity.java	(date 1448936455000)
++++ app/src/main/java/com/joshbgold/catroulette/MainActivity.java	(revision )
+@@ -12,6 +12,7 @@
+ import android.os.Bundle;
+ import android.preference.PreferenceManager;
+ import android.text.TextUtils;
++import android.view.MenuItem;
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.CheckBox;
+@@ -123,7 +124,7 @@
+     };
+ 
+ 
+-    private static final String[] SimonVideoList= {
++    private static final String[] SimonVideoList = {
+             "mEi0p6m3LYs", //34. Simon's Cat - Wake Up
+     };
+ 
+@@ -148,6 +149,7 @@
+ 
+         final Button chooseCatsButton = (Button) findViewById(R.id.Choose_Cats_button);
+         final Button exitButton = (Button) findViewById(R.id.exit_button);
++        final android.app.ActionBar actionBar = getActionBar();
+ 
+         playVideoButton = (Button) findViewById(R.id.start_video_button);
+         startTimeEditText = (EditText) findViewById(R.id.start_time_text);
+@@ -156,6 +158,10 @@
+ 
+         playVideoButton.setOnClickListener(this);
+ 
++        if (actionBar != null) {
++            actionBar.setDisplayHomeAsUpEnabled(true);
++        }
++
+         View.OnClickListener chooseCats = new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+@@ -163,7 +169,7 @@
+             }
+         };
+ 
+-        View.OnClickListener exit = new View.OnClickListener(){
++        View.OnClickListener exit = new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 finish();
+@@ -174,7 +180,18 @@
+         exitButton.setOnClickListener(exit);
+     }
+ 
++    @Override
++    public boolean onOptionsItemSelected(MenuItem item) {
++        switch (item.getItemId()) {
++            case android.R.id.home:
++                this.finish();
++                return true;
++            default:
++                return super.onOptionsItemSelected(item);
++        }
++    }
++
+-    private void startCatChoices(){
++    private void startCatChoices() {
+         Intent intent = new Intent(MainActivity.this, ChoicesActivity.class);
+         startActivity(intent);
+     }
+@@ -211,14 +228,13 @@
+                             .getErrorDialog(this, REQ_RESOLVE_SERVICE_MISSING).show();
+                 }
+             }
+-        }
+-        else{
++        } else {
+             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+             builder.setTitle("Cat Roulette is sorry...")
+                     .setIcon(R.mipmap.ic_launcher)
+                     .setMessage("You do not have a mobile or wifi connection with internet service at this time.")
+                     .setCancelable(false)
+-                    .setNegativeButton("OK",new DialogInterface.OnClickListener() {
++                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                         public void onClick(DialogInterface dialog, int id) {
+                             dialog.cancel();
+                         }
+@@ -274,54 +290,44 @@
+         //Toast.makeText(MainActivity.this, "You chose " + choice, Toast.LENGTH_SHORT).show();
+ 
+         //choose the correct video list
+-        if (choice == null){
++        if (choice == null) {
+             int i = new Random().nextInt(MainVideoList.length);
+             return MainVideoList[i];
+-        }
+-        else if (choice.equals("All")){
++        } else if (choice.equals("All")) {
+             int i = new Random().nextInt(MainVideoList.length);
+             return MainVideoList[i];
+-        }
+-        else if (choice.equals("Dubstep")){
++        } else if (choice.equals("Dubstep")) {
+             int i = new Random().nextInt(DubstepCatVideoList.length);
+             return DubstepCatVideoList[i];
+-        }
+-        else if (choice.equals("Maru")){
++        } else if (choice.equals("Maru")) {
+             int i = new Random().nextInt(MaruVideoList.length);
+             return MaruVideoList[i];
+-        }
+-        else if (choice.equals("NoNoNo")) {
++        } else if (choice.equals("NoNoNo")) {
+             int i = new Random().nextInt(NoNoNoVideoList.length);
+             return NoNoNoVideoList[i];
+-        }
+-        else if (choice.equals("Nyan")) {
++        } else if (choice.equals("Nyan")) {
+             int i = new Random().nextInt(NyanVideoList.length);
+             return NyanVideoList[i];
+-        }
+-        else if (choice.equals("Roomba")) {
++        } else if (choice.equals("Roomba")) {
+             int i = new Random().nextInt(RoombaVideoList.length);
+             return RoombaVideoList[i];
+-        }
+-        else if (choice.equals("Simon")) {
++        } else if (choice.equals("Simon")) {
+             int i = new Random().nextInt(SimonVideoList.length);
+             return SimonVideoList[i];
+-        }
+-        else if (choice.equals("Venus")) {
++        } else if (choice.equals("Venus")) {
+             int i = new Random().nextInt(VenusVideoList.length);
+             return VenusVideoList[i];
+-        }
+-        else if (choice.equals("Yodel")) {
++        } else if (choice.equals("Yodel")) {
+             int i = new Random().nextInt(YodelVideoList.length);
+             return YodelVideoList[i];
+-        }
+-        else {
++        } else {
+             int i = new Random().nextInt(MainVideoList.length);
+             return MainVideoList[i];
+         }
+     }
+ 
+     //save prefs
+-    public void savePrefs(String key, String value){
++    public void savePrefs(String key, String value) {
+         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+         SharedPreferences.Editor editor = sharedPreferences.edit();
+         editor.putString(key, value);
+@@ -329,7 +335,7 @@
+     }
+ 
+     //get prefs
+-    public String loadPrefs(String key, String value){
++    public String loadPrefs(String key, String value) {
+         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+         return sharedPreferences.getString(key, value);
+     }
+\ No newline at end of file

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient">
+
+    <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+
+              android:gravity="center"
+              android:orientation="vertical"
+              >
+
+    <ImageView
+        android:layout_width="181dp"
+        android:layout_height="132dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/cat2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+         <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All "
+                android:id="@+id/AllButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dubstep cat "
+                android:id="@+id/DubstepButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maru "
+                android:id="@+id/MaruButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No no no cat "
+                android:id="@+id/NoNoNoButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nyan "
+            android:id="@+id/NyanButton"
+            android:layout_gravity="start"
+            android:background="@drawable/buttons"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roomba "
+                android:id="@+id/RoombaButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simon's cat "
+                android:id="@+id/SimonButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Venus "
+                android:id="@+id/VenusButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="5dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yodel cats "
+                android:id="@+id/YodelButton"
+                android:layout_gravity="start"
+                android:background="@drawable/buttons"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginBottom="20dp"/>
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
+            android:text="Return"
+            android:id="@+id/returnButton"/>
+
+        </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>
