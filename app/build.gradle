@@ -8,8 +8,8 @@ android {
         applicationId "com.joshbgold.catroulette"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 7
-        versionName "1.6"
+        versionCode 9
+        versionName "1.8"
     }
     buildTypes {
         release {

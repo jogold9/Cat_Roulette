@@ -32,7 +32,6 @@ public class ChoicesActivity extends MainActivity {
 
          /* Initialize Radio Group and attach click handler */
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        //radioGroup.clearCheck();
 
         allButton = (RadioButton) findViewById(R.id.AllButton);
         dubstepButton = (RadioButton) findViewById(R.id.DubstepButton);
@@ -60,31 +59,31 @@ public class ChoicesActivity extends MainActivity {
                     int selectedId = radioGroup.getCheckedRadioButtonId();
                     String selectedChoice = Integer.toString(selectedId);
 
-                    if (selectedChoice.equals("2131492929")){
+                    if (allButton.isChecked()){
                         choice = "All";
                     }
-                    else if (selectedChoice.equals("2131492930")){
+                    else if (dubstepButton.isChecked()){
                         choice = "Dubstep";
                     }
-                    else if (selectedChoice.equals("2131492931")){
+                    else if (maruButton.isChecked()){
                         choice = "Maru";
                     }
-                    else if (selectedChoice.equals("2131492933")){
+                    else if (noNoNoButton.isChecked()){
                         choice = "NoNoNo";
                     }
-                    else if (selectedChoice.equals("2131492934")){
+                    else if (nyanButton.isChecked()){
                         choice = "Nyan";
                     }
-                    else if (selectedChoice.equals("2131492935")){
+                    else if (roombaButton.isChecked()){
                         choice = "Roomba";
                     }
-                    else if (selectedChoice.equals("2131492936")){
+                    else if (simonButton.isChecked()){
                         choice = "Simon";
                     }
-                    else if (selectedChoice.equals("2131492937")){
+                    else if (venusButton.isChecked()){
                         choice = "Venus";
                     }
-                    else if (selectedChoice.equals("2131492938")){
+                    else if (yodelButton.isChecked()){
                         choice = "Yodel";
                     }
                     else {
