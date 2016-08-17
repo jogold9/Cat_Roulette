@@ -89,6 +89,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             "V5Z6jQrjrLg", //33. lil bub
             "mEi0p6m3LYs", //34. Simon's Cat - Wake Up
             "B8TvkyjBGPQ", //35. Cat & Horse
+            "rNnG1IfvtUE", //36. Cat in the hat
+
     };
 
     private static final String[] DubstepCatVideoList = {
